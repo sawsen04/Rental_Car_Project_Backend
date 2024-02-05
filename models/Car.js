@@ -11,10 +11,6 @@ const carSchema = new Schema(
       type: String,
       required: [true, "model is required field"],
     },
-    description: {
-      type: String,
-      required: [true, "description is required field"],
-    },
     year: {
       type: String,
       required: [true, "year is required field"],

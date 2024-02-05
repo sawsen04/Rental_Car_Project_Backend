@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 //environmentals variables
@@ -21,6 +22,11 @@ mongoose
 
 //middleware
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/admin", require("./routes/admin"));
