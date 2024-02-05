@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
         token,
         isUser: user.isUser,
         isAdmin: user.isAdmin,
-        isBanned: user.isBanned,
+        id: user._id,
       },
     });
   } catch (error) {
