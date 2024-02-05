@@ -6,7 +6,7 @@ const upload = require("../../middlewares/multer");
 //register
 router.post("/register", require("./register"));
 //login
-router.post("/login", require("./login"));
+// router.post("/login", require("./login"));
 //admin update his photo
 router.put(
   "/updateAdminPhoto/:adminId",

@@ -26,6 +26,7 @@ module.exports = async (req, res) => {
       data: {
         token,
         isUser: user.isUser,
+        isAdmin: user.isAdmin,
         isBanned: user.isBanned,
       },
     });
