@@ -11,7 +11,6 @@ module.exports = async (req, res) => {
       gearBox,
       pricePerDay,
       fuel,
-      description,
     } = req.body;
     const uploader = async (path) => await cloudinary.uploads(path, "uploads");
     let urls = [];
@@ -24,7 +23,6 @@ module.exports = async (req, res) => {
       brand,
       model,
       year,
-      description,
       mileage,
       imageUrl: urls,
       gearBox,

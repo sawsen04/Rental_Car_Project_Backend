@@ -30,7 +30,7 @@ const carSchema = new Schema(
       gearBox: [true, "image is required field"],
     },
     pricePerDay: {
-      type: String,
+      type: Number,
       required: [true, "price is required field"],
     },
     fuel: {

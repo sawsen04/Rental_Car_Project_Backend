@@ -10,10 +10,13 @@ router.post("/register", require("./register"));
 router.post("/login", require("./login"));
 
 //user get cars
-router.get("/cars", verifiedToken, require("./getCars"));
+router.get("/cars", require("./getCars"));
+
+//user get cars by multiple query
+router.get("/filterCars", require("./filterCars"));
 
 //user get single car
-router.get("/singleCar/:carId", verifiedToken, require("./getSingleCar"));
+router.get("/singleCar/:carId", require("./getSingleCar"));
 
 //user update his infos
 router.put("/updateInfo/:userId", verifiedToken, require("./updateUserInfo"));

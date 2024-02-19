@@ -4,7 +4,7 @@ const verifiedToken = require("../../middlewares/verifyToken");
 const upload = require("../../middlewares/multer");
 
 //register
-router.post("/register", require("./register"));
+//router.post("/register", require("./register"));
 //login
 // router.post("/login", require("./login"));
 //admin update his photo
@@ -40,7 +40,7 @@ router.put(
 );
 
 //admin get cars
-router.get("/cars", verifiedToken, require("./getCars"));
+router.get("/cars", require("./getCars"));
 
 //admin get single car
 router.get("/singleCar/:carId", verifiedToken, require("./getSingleCar"));
