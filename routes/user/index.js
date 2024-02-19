@@ -16,7 +16,7 @@ router.get("/cars", require("./getCars"));
 router.get("/filterCars", require("./filterCars"));
 
 //user get single car
-router.get("/singleCar/:carId", require("./getSingleCar"));
+router.get("/singleCar/:carId", verifiedToken, require("./getSingleCar"));
 
 //user update his infos
 router.put("/updateInfo/:userId", verifiedToken, require("./updateUserInfo"));
