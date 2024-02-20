@@ -23,6 +23,10 @@ const orderSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    carId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "cars",
+    },
     isPaid: {
       type: Boolean,
       default: false,
