@@ -47,6 +47,6 @@ router.put("/updateOrder/:orderId", verifiedToken, require("./updateOrder"));
 router.get("/ownOrder", verifiedToken, require("./getOwnOrder"));
 
 //user delete his account
-router.delete("/deleteAccount", verifiedToken, require("./deleteAccount"));
+//router.delete("/deleteAccount", verifiedToken, require("./deleteAccount"));
 
 module.exports = router;
