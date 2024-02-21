@@ -24,8 +24,7 @@ const userSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      default:
-        "https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png",
+      default: "https://cdn-icons-png.flaticon.com/512/9131/9131529.png",
     },
     isUser: {
       type: Boolean,
