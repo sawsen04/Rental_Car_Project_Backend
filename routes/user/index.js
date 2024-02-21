@@ -18,6 +18,9 @@ router.get("/filterCars", require("./filterCars"));
 //user get single car
 router.get("/singleCar/:carId", verifiedToken, require("./getSingleCar"));
 
+//user get his infos
+router.get("/getUserInfo", verifiedToken, require("./getUserInfo"));
+
 //user update his infos
 router.put("/updateInfo/:userId", verifiedToken, require("./updateUserInfo"));
 
