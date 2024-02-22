@@ -14,6 +14,10 @@ router.put(
   upload.single("photo"),
   require("./updateAdminPhoto")
 );
+
+//admin get his infos
+router.get("/getAdminInfo", verifiedToken, require("./getAdminInfo"));
+
 //admin update his infos
 router.put("/updateInfo/:adminId", verifiedToken, require("./updateAdminInfo"));
 
