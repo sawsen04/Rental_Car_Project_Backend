@@ -7,7 +7,6 @@ module.exports = async (req, res, next) => {
     return res.status(400).json({ status: false, error: "Invalid token" });
   }
   let verifiedToken = await jwt.verify(token, SECRET_KEY);
-  console.log(verifiedToken);
   if (!verifiedToken) {
     return res.status(400).json({ status: false, error: "Expired session" });
   } else {
