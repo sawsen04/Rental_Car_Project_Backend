@@ -5,9 +5,9 @@ module.exports = async (req, res) => {
     let singleCar = await Car.findById(carId);
     res.status(200).json({ status: true, data: singleCar });
   } catch (error) {
-    if (error) {
-      console.log(error);
-    }
+    // if (error) {
+    //   console.log(error);
+    // }
     res.status(401).json({ status: false, error });
   }
 };

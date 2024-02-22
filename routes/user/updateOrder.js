@@ -11,9 +11,9 @@ module.exports = async (req, res) => {
       .status(200)
       .json({ status: true, message: "order was updated successfully" });
   } catch (error) {
-    if (error) {
-      console.log(error);
-    }
+    // if (error) {
+    //   console.log(error);
+    // }
     res.status(401).json({ status: false, error });
   }
 };

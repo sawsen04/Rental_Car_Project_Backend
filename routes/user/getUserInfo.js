@@ -5,9 +5,9 @@ module.exports = async (req, res) => {
     let user = await User.findById(id);
     res.status(200).json({ status: true, data: user });
   } catch (error) {
-    if (error) {
-      console.log(error);
-    }
+    // if (error) {
+    //   console.log(error);
+    // }
     res.status(401).json({ status: false, error });
   }
 };

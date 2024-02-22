@@ -21,7 +21,7 @@ const orderSchema = new Schema(
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "users",
     },
     carId: {
       type: mongoose.Schema.Types.ObjectId,

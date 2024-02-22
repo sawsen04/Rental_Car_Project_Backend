@@ -46,9 +46,9 @@ module.exports = async (req, res) => {
       .status(200)
       .json({ status: true, message: "user was created successfully" });
   } catch (error) {
-    if (error) {
-      console.log(error);
-    }
+    // if (error) {
+    //   console.log(error);
+    // }
     res.status(401).json({ status: false, error: error.errors });
   }
 };

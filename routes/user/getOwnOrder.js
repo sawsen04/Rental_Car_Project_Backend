@@ -5,9 +5,9 @@ module.exports = async (req, res) => {
     let ownOrder = await Order.find({ userId: id }).populate("carId");
     res.status(200).json({ status: true, data: ownOrder });
   } catch (error) {
-    if (error) {
-      console.log(error);
-    }
+    // if (error) {
+    //   console.log(error);
+    // }
     res.status(401).json({ status: false, error });
   }
 };
