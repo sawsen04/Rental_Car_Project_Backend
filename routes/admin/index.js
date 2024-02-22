@@ -16,7 +16,7 @@ router.put(
 );
 
 //admin get his infos
-router.get("/getAdminInfo", verifiedToken, require("./getAdminInfo"));
+router.get("/getAdminInfo/:adminId", verifiedToken, require("./getAdminInfo"));
 
 //admin update his infos
 router.put("/updateInfo/:adminId", verifiedToken, require("./updateAdminInfo"));
