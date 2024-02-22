@@ -1,8 +1,8 @@
 const Admin = require("../../models/Admin");
 module.exports = async (req, res) => {
   try {
-  let { adminId } = req.params;
-    let admin = await Admin.findById(adminId);
+    let { id } = req.user;
+    let admin = await Admin.findById(id);
     res.status(200).json({ status: true, data: admin });
   } catch (error) {
     if (error) {
