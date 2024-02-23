@@ -27,7 +27,7 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-app.use(require("./middlewares/finishRent"));
+// app.use(require("./middlewares/finishRent"));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/admin", require("./routes/admin"));

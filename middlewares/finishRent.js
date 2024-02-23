@@ -5,9 +5,7 @@ module.exports = async (req, res, next) => {
     console.log("finish rent middleware");
     // let { carId } = req.params;
     let date = new Date();
-    let order = await Order.findOne({
-      isPaid: false,
-    });
+    let order = await Order.find();
     let orderCreatedDate = date.getTime(order.createdAt);
     let currentDate = date.getTime();
     console.log("time", currentDate - orderCreatedDate >= 120000);
