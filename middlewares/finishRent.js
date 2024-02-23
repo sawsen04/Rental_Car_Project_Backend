@@ -3,15 +3,15 @@ const Car = require("../models/Car");
 module.exports = async (req, res) => {
   try {
     console.log("finish rent middleware");
-    let { carId } = req.params;
+    // let { carId } = req.params;
     let date = new Date();
     let order = await Order.findOne({
-      carId,
+      isPaid: false,
     });
     let orderCreatedDate = date.getTime(order.createdAt);
     let currentDate = date.getTime();
     if (currentDate - orderCreatedDate >= 120000) {
-      await Car.findByIdAndUpdate(carId, {
+      await Car.findByIdAndUpdate(order.carId, {
         $set: {
           isAvailable: true,
         },
