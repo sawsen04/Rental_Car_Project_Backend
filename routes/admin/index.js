@@ -60,4 +60,7 @@ router.get("/singleOrder/:orderId", verifiedToken, require("./getSingleOrder"));
 //admin approve order
 router.put("/approveOrder/:orderId/:carId", require("./approveOrder"));
 
+//admin finish rent
+router.put("/finishRent/:orderId/:carId", require("./setCarAvailable"));
+
 module.exports = router;
