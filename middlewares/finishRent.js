@@ -1,5 +1,5 @@
-const Order = require("../../models/Order");
-const Car = require("../../models/Car");
+const Order = require("../models/Order");
+const Car = require("../models/Car");
 module.exports = async (req, res) => {
   try {
     console.log("finish rent middleware");
