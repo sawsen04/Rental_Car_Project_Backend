@@ -5,21 +5,23 @@ module.exports = async (req, res, next) => {
     console.log("finish rent middleware");
     // let { carId } = req.params;
     let date = new Date();
-    let order = await Order.find();
-    let orderCreatedDate = date.getTime(order.createdAt);
+    let orders = await Order.find();
     let currentDate = date.getTime();
-    console.log("time", currentDate - orderCreatedDate >= 120000);
-    if (currentDate - orderCreatedDate >= 120000) {
-      await Car.findByIdAndUpdate(order.carId, {
-        $set: {
-          isAvailable: true,
-        },
-      });
+    orders.forEach((order) => {
+      let orderCreatedDate = date.getTime(order.createdAt);
+      console.log("time", currentDate - orderCreatedDate >= 120000);
+      if (currentDate - orderCreatedDate >= 120000) {
+        Car.findByIdAndUpdate(order.carId, {
+          $set: {
+            isAvailable: true,
+          },
+        });
 
-      next();
-    } else {
-      next();
-    }
+        next();
+      } else {
+        next();
+      }
+    });
   } catch (error) {
     if (error) {
       console.log(error);

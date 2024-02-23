@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 require("dotenv").config();
+const Order = require("./models/Order");
+const Car = require("./models/Car");
 
 //environmentals variables
 const DBURI = process.env.DBURI;
@@ -27,7 +29,30 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-// app.use(require("./middlewares/finishRent"));
+
+async function finishRent(req, res, next) {
+  let orders = await Order.find();
+  let currentDate = Date.now();
+
+  orders.forEach(async (order) => {
+    let date = new Date(order.createdAt);
+    let orderCreatedDate = date.getTime();
+    // console.log(currentDate);
+    // console.log(orderCreatedDate);
+    // console.log(currentDate - orderCreatedDate >120000 );
+    if (currentDate / 1000 - orderCreatedDate / 1000 >= 420) {
+      await Order.findByIdAndDelete(order._id);
+      await Car.findByIdAndUpdate(order.carId, {
+        $set: {
+          isAvailable: true,
+        },
+      });
+    }
+  });
+  next();
+  // next();
+}
+app.use(finishRent);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/user", require("./routes/user"));
 app.use("/api/admin", require("./routes/admin"));
