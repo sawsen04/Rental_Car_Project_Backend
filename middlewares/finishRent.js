@@ -17,12 +17,9 @@ module.exports = async (req, res, next) => {
           isAvailable: true,
         },
       });
-      res.status(200).json({ status: true, message: "Car is available now" });
+
       next();
     } else {
-      res
-        .status(200)
-        .json({ status: true, message: "Car is not  available now" });
       next();
     }
   } catch (error) {
