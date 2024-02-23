@@ -7,6 +7,7 @@ module.exports = async (req, res) => {
     await Car.findByIdAndUpdate(carId, {
       $set: {
         isAvailable: true,
+        isFinished: true,
       },
     });
     res.status(200).json({ status: true, message: "Car is available now" });

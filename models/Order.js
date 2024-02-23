@@ -31,6 +31,11 @@ const orderSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    isFinished: {
+      type: Boolean,
+      default: false,
+    },
+    
   },
   {
     timestamps: true,
