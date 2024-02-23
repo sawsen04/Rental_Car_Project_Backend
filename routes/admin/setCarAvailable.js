@@ -2,7 +2,7 @@ const Order = require("../../models/Order");
 const Car = require("../../models/Car");
 module.exports = async (req, res) => {
   try {
-    let { orderId, carId } = req.params;
+    let { carId } = req.params;
     // await Order.findByIdAndDelete(orderId);
     await Car.findByIdAndUpdate(carId, {
       $set: {

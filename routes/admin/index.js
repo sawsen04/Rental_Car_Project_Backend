@@ -61,6 +61,6 @@ router.get("/singleOrder/:orderId", verifiedToken, require("./getSingleOrder"));
 router.put("/approveOrder/:orderId/:carId", require("./approveOrder"));
 
 //admin finish rent
-router.put("/finishRent/:orderId/:carId", require("./setCarAvailable"));
+router.put("/finishRent/:carId", require("./setCarAvailable"));
 
 module.exports = router;
