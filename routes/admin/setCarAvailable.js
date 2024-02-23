@@ -4,13 +4,13 @@ module.exports = async (req, res) => {
   try {
     let { carId } = req.params;
     // await Order.findByIdAndDelete(orderId);
-    await Car.findByIdAndUpdate(carId, {
+    let update = await Car.findByIdAndUpdate(carId, {
       $set: {
         isAvailable: true,
         isFinished: true,
       },
     });
-    res.status(200).json({ status: true, message: "Car is available now" });
+    res.status(200).json({ status: true, message: update });
   } catch (error) {
     if (error) {
       console.log(error);
