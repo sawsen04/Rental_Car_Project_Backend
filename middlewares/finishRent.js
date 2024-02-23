@@ -2,6 +2,7 @@ const Order = require("../../models/Order");
 const Car = require("../../models/Car");
 module.exports = async (req, res) => {
   try {
+    console.log("finish rent middleware");
     let { carId } = req.params;
     let date = new Date();
     let order = await Order.findOne({
