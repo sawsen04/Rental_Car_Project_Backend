@@ -1,4 +1,5 @@
 const Order = require("../../models/Order");
+const Car = require("../../models/Car");
 const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 module.exports = async (req, res) => {
@@ -21,6 +22,11 @@ module.exports = async (req, res) => {
       ammount,
       userId: id,
       carId,
+    });
+    await Car.findByIdAndUpdate(carId, {
+      $set: {
+        isAvailable: false,
+      },
     });
     await newOrder.save();
     res.status(200).json({ status: true, message: "order added successfully" });
