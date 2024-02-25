@@ -4,7 +4,7 @@ const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     let { carId } = req.params;
-    const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+    const uploader = async (path) => await cloudinary.uploads(path, "photo car updated");
     let urls = [];
     for (let i = 0; i < req.files.length; i++) {
       let result = await uploader(req.files[i].path);

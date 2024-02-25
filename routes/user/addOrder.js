@@ -8,7 +8,8 @@ module.exports = async (req, res) => {
     let { id } = req.user;
     let { carId } = req.params;
     // console.log("carId", carId);
-    const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+    const uploader = async (path) =>
+      await cloudinary.uploads(path, "photo driving license users");
     let urls = [];
     for (let i = 0; i < req.files.length; i++) {
       let result = await uploader(req.files[i].path);

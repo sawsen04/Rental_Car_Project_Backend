@@ -4,7 +4,8 @@ const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     let { userId } = req.params;
-    const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+    const uploader = async (path) =>
+      await cloudinary.uploads(path, "user photo");
     let { path } = req.file;
     const { url } = await uploader(path);
     fs.unlinkSync(path);
