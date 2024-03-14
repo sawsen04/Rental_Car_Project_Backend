@@ -40,7 +40,10 @@ async function finishRent(req, res, next) {
     // console.log(currentDate);
     // console.log(orderCreatedDate);
     // console.log(currentDate - orderCreatedDate >120000 );
-    if (currentDate / 1000 - orderCreatedDate / 1000 >= 300 && !order.isPaid) {
+    if (
+      currentDate / 1000 - orderCreatedDate / 1000 >= 86400 &&
+      !order.isPaid
+    ) {
       await Order.findByIdAndDelete(order._id);
       await Car.findByIdAndUpdate(order.carId, {
         $set: {
